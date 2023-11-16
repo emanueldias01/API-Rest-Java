@@ -1,7 +1,9 @@
 package com.portfolioemanuel.services;
 
+import com.portfolioemanuel.dto.GameMinDTO;
 import com.portfolioemanuel.dto.Gamedto;
 import com.portfolioemanuel.entities.Game;
+import com.portfolioemanuel.projections.GameMinProjection;
 import com.portfolioemanuel.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,15 @@ public class GameService {
 
 
    }
+
+   @Transactional(readOnly = true)
+    public List<GameMinDTO> findByList(Long listId) {
+        List<GameMinProjection> result = gameRepository.searchByList(listId);
+        return  result.stream().map(x -> new GameMinDTO(x)).toList();
+
+   }
+
+
 
 
 }

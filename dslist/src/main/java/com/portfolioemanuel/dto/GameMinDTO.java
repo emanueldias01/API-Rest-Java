@@ -1,6 +1,7 @@
 package com.portfolioemanuel.dto;
 
 import com.portfolioemanuel.entities.Game;
+import com.portfolioemanuel.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -21,6 +22,14 @@ public class GameMinDTO {
         year = year;
         imgUrl = imgUrl;
         shortDescription = shortDescription;
+    }
+
+    public GameMinDTO(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgURL();
+        shortDescription = projection.getShorDescription();
     }
 
     public Long getId() {
