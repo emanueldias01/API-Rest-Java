@@ -2,6 +2,7 @@ package com.portfolioemanuel.dto;
 
 import com.portfolioemanuel.entities.Game;
 import com.portfolioemanuel.entities.GameList;
+import com.portfolioemanuel.services.GameListService;
 
 public class GameListDTO {
 
